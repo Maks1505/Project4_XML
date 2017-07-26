@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="color">
+   <xs:simpleType>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="White"/>
+      <xs:enumeration value="Green"/>
+      <xs:enumeration value="Red"/>
+      <xs:enumeration value="Yellow"/>
+    </xs:restriction>
+   </xs:simpleType>
+  </xs:element>
+ 
+  <xs:element name="clarity-percent">
+   <xs:simpleType>
+  	<xs:restriction base="xs:integer">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="100"/>
+    </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  
+  <xs:element name="cut-type">
+   <xs:simpleType>
+  	<xs:restriction base="xs:integer">
+      <xs:minInclusive value="4"/>
+      <xs:maxInclusive value="15"/>
+    </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  
+  <xs:element name="preciousness" default="Precious">
+   <xs:simpleType>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Precious"/>
+      <xs:enumeration value="Semi-Precious"/>
+    </xs:restriction>
+   </xs:simpleType>
+  </xs:element>
+  
+  <xs:element name="origin" type="xs:string" />
+  
+  <xs:element name="value">
+   <xs:simpleType>
+  	<xs:restriction base="xs:float">
+      <xs:minInclusive value="0"/>
+    </xs:restriction>
+   </xs:simpleType>
+  </xs:element>
+  
+  <xs:element name="visual-parameters">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="color"/>
+        <xs:element ref="clarity-percent"/>
+        <xs:element ref="cut-type"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="gem">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="preciousness" maxOccurs="1" minOccurs="1"/>
+        <xs:element ref="origin" maxOccurs="1" minOccurs="0"/>
+        <xs:element ref="value"/>
+        <xs:element ref="visual-parameters"/>
+      </xs:sequence>
+      <xs:attribute type="xs:string" name="name" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="gems">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="gem" maxOccurs="unbounded" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

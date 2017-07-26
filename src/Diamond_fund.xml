@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gems xsi:schemaLocation="Diamond_fund.xsd">>
+	<gem name="Ruby">
+		<preciousness>Precious</preciousness>
+		<origin>wild west</origin>
+		<value>0.3</value>
+		<visual-parameters>
+			<color>red</color>
+			<clarity-percent>50</clarity-percent>
+			<cut-type>4</cut-type>
+		</visual-parameters>
+	</gem>
+	<gem name="Diamond">
+		<preciousness>Semi-Precious</preciousness>
+		<origin>east</origin>
+		<value>1</value>
+		<visual-parameters>
+			<color>white</color>
+			<clarity-percent>80</clarity-percent>
+			<cut-type>15</cut-type>
+		</visual-parameters>
+	</gem>
+
+</gems>
